@@ -1,0 +1,147 @@
+/* Stile generale */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
+    color: white;
+    margin: 0;
+}
+
+/* Navbar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1DB954;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #1DB954;
+}
+
+/* Sezione di acquisto */
+.purchase-section {
+    padding: 100px 20px;
+    background: #121212;
+    text-align: center;
+}
+
+.purchase-section h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.purchase-section p {
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+/* Dettagli Abbonamento */
+.subscription-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 30px;
+    background-color: #282828;
+    border-radius: 10px;
+}
+
+.image-container {
+    width: 45%;
+}
+
+.subscription-image {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.subscription-info {
+    width: 50%;
+    padding: 20px;
+    text-align: left;
+}
+
+.subscription-info h2 {
+    font-size: 28px;
+    color: #1DB954;
+    margin-bottom: 20px;
+}
+
+.subscription-info p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1DB954;
+    margin-bottom: 20px;
+}
+
+.subscription-info ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.subscription-info ul li {
+    margin: 5px 0;
+}
+
+/* Pulsanti */
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    background-color: #1DB954;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #1a8f3d;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
