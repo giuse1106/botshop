@@ -3,19 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatUnity - Acquisto Abbonamento</title>
-    
-    <!-- Meta per i social media (WhatsApp, Facebook, ecc.) -->
-    <meta property="og:title" content="ChatUnity - Acquista il Tuo Abbonamento" />
-    <meta property="og:description" content="Completa l'acquisto per il tuo abbonamento su ChatUnity e inizia a utilizzare i nostri bot per WhatsApp." />
-    <meta property="og:image" content="https://media-fco2-1.cdn.whatsapp.net/v/t61.24694-24/479987588_4021574508087986_3619834273786136855_n.jpg?ccb=11-4&oh=01_Q5AaIB9GWa-5g0BsmTjtiJDiA_7y9Gq9niX5bZD7Nzr4zL4C&oe=67D9B3F3&_nc_sid=5e03e0&_nc_cat=111" />
-    <meta property="og:url" content="https://chatunityshop.netlify.app/acquisto-abbonamento.html" />
-
-    <!-- Favicon -->
-    <link rel="icon" href="https://media-fco2-1.cdn.whatsapp.net/v/t61.24694-24/479987588_4021574508087986_3619834273786136855_n.jpg?ccb=11-4&oh=01_Q5AaIB9GWa-5g0BsmTjtiJDiA_7y9Gq9niX5bZD7Nzr4zL4C&oe=67D9B3F3&_nc_sid=5e03e0&_nc_cat=111" type="image/jpeg">
-
+    <title>ChatUnity - Abbonamento</title>
     <link rel="stylesheet" href="prodotti.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -33,12 +22,10 @@
         <p>Scegli il piano che più ti si addice e completa il pagamento per iniziare a usare i bot di ChatUnity su WhatsApp.</p>
 
         <div class="subscription-details">
-            <!-- Immagine a sinistra -->
             <div class="image-container">
                 <img src="https://media-fco2-1.cdn.whatsapp.net/v/t61.24694-24/479987588_4021574508087986_3619834273786136855_n.jpg?ccb=11-4&oh=01_Q5AaIB9GWa-5g0BsmTjtiJDiA_7y9Gq9niX5bZD7Nzr4zL4C&oe=67D9B3F3&_nc_sid=5e03e0&_nc_cat=111" alt="Abbonamento ChatUnity" class="subscription-image">
             </div>
 
-            <!-- Dettagli Abbonamento a destra -->
             <div class="subscription-info">
                 <h2><strong>Abbonamento: Base</strong></h2>
                 <p>Automatizza WhatsApp con il nostro piano Base. Ottieni il nostro bot di base per la gestione delle tue conversazioni.</p>
@@ -49,13 +36,28 @@
                     <li>Supporto via Email o WhatsApp</li>
                 </ul>
 
-                <div class="buttons">
-                    <!-- Pulsanti -->
-                    <button class="btn" id="add-to-cart">Aggiungi al Carrello</button>
-                    <a href="https://sito-per-abbonarsi.com" target="_blank">
-                        <button class="btn">Abbonati</button>
-                    </a>
-                </div>
+                <!-- Integrazione del pulsante PayPal -->
+                <div id="paypal-button-container-P-27X93702TC882062DM7GL6ZI"></div>
+                <script src="https://www.paypal.com/sdk/js?client-id=AQOK4j5k37hNCh7OgxgHU-OW0Nr00eYgcOeG6iL712lzHSajkH0Og2agBsZ16Kyz5oWIqlTLukhyMcRA&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+                <script>
+                    paypal.Buttons({
+                        style: {
+                            shape: 'pill',
+                            color: 'gold',
+                            layout: 'vertical',
+                            label: 'subscribe'
+                        },
+                        createSubscription: function(data, actions) {
+                            return actions.subscription.create({
+                                /* Creates the subscription */
+                                plan_id: 'P-27X93702TC882062DM7GL6ZI'
+                            });
+                        },
+                        onApprove: function(data, actions) {
+                            alert('Abbonamento completato! ID sottoscrizione: ' + data.subscriptionID);
+                        }
+                    }).render('#paypal-button-container-P-27X93702TC882062DM7GL6ZI'); // Renders the PayPal button
+                </script>
             </div>
         </div>
     </section>
@@ -63,7 +65,5 @@
     <footer>
         <p>&copy; 2025 ChatUnity. Tutti i diritti riservati.</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
