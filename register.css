@@ -1,0 +1,76 @@
+/* 🌍 Register Page */
+.register-page {
+    background: linear-gradient(to right, #1DB954, #121212);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 📦 Box di registrazione */
+.register-container {
+    width: 100%;
+    max-width: 400px;
+    background: #282828;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white;
+}
+
+.register-box h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+/* ✏️ Input */
+.register-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+    font-size: 16px;
+}
+
+.register-box input:focus {
+    outline: none;
+    border: 2px solid #1DB954;
+}
+
+/* 🔘 Bottone */
+.btn {
+    background: #1DB954;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #14833B;
+}
+
+/* 🔗 Link */
+.register-box p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.register-box a {
+    color: #1DB954;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-box a:hover {
+    text-decoration: underline;
+}
