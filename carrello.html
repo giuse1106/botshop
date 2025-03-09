@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛒 Carrello</title>
+    <link rel="stylesheet" href="carrello.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">🟢『 𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲 』📲</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="carrello.html">🛒 Carrello (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+
+    <section class="cart">
+        <h1>Il tuo Carrello</h1>
+        <ul id="cart-list"></ul>
+        <p id="total-price">Totale: €0.00</p>
+        <button id="clear-cart" class="btn">Svuota Carrello</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 ChatUnity. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+            function updateCart() {
+                const cartList = document.getElementById("cart-list");
+                const totalPrice = document.getElementById("total-price");
+                cartList.innerHTML = "";
+                let total = 0;
+                let itemCount = 0;  // Conteggio articoli per visualizzare la quantità totale
+
+                cart.forEach((item, index) => {
+                    // Aggiungiamo un controllo sui dati del carrello
+                    if (isNaN(item.price) || isNaN(item.quantity) || item.quantity <= 0 || item.price < 0) {
+                        console.error("Dati carrello non validi:", item);
+                        return; // Salta questo articolo se i dati non sono validi
+                    }
+
+                    const li = document.createElement("li");
+                    li.classList.add("cart-item");
+
+                    li.innerHTML = `
+                        <span>${item.name}</span>
+                        <span class="item-quantity">x${item.quantity}</span>
+                        <button class="remove-one" data-index="${index}">-1</button>
+                        <button class="remove-all" data-index="${index}">X</button>
+                    `;
+
+                    cartList.appendChild(li);
+                    total += item.price * item.quantity;
+                    itemCount += item.quantity;  // Aggiungi la quantità dell'articolo al totale
+                });
+
+                // Aggiornamento del totale e del numero di articoli nel carrello
+                totalPrice.innerText = `Totale: €${total.toFixed(2)} (${itemCount} articoli)`;
+                localStorage.setItem("cart", JSON.stringify(cart));
+                document.getElementById("cart-count").textContent = itemCount;  // Aggiorna il numero totale di articoli
+            }
+
+            document.getElementById("cart-list").addEventListener("click", function (e) {
+                if (e.target.classList.contains("remove-one")) {
+                    let index = e.target.getAttribute("data-index");
+                    if (cart[index].quantity > 1) {
+                        cart[index].quantity--;
+                    } else {
+                        cart.splice(index, 1);
+                    }
+                    updateCart();
+                } else if (e.target.classList.contains("remove-all")) {
+                    let index = e.target.getAttribute("data-index");
+                    cart.splice(index, 1);
+                    updateCart();
+                }
+            });
+
+            document.getElementById("clear-cart").addEventListener("click", function () {
+                cart = [];
+                updateCart();
+            });
+
+            updateCart();
+        });
+    </script>
+
+</body>
+</html>
