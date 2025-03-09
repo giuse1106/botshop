@@ -1,61 +1,100 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🟢『 𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲 』📲 - Home Page</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🟢『 𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲 』📲 - Home Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="logo">🟢『 𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲 』📲</div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="carrello.html">🛒 Carrello (<span id="cart-count">0</span>)</a>
-            <a href="login.html">Login</a>
-            <a href="register.html">Registrati</a>
-        </nav>
-    </header>
+    <header>
+        <div class="logo">🟢『 𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲 』📲</div>
+        <button id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="carrello.html">🛒 Carrello (<span id="cart-count">0</span>)</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Registrati</a>
+        </nav>
+    </header>
 
-    <section class="hero">
-        <h1>Automatizza WhatsApp con i migliori Bot</h1>
-        <p>Gestisci messaggi, automazioni e molto altro con i nostri piani esclusivi.</p>
-        <a href="register.html" class="btn">Inizia Ora</a>
-    </section>
+    <section class="hero">
+        <h1>Benvenuti in ChatUnity</h1>
+        <p>La tua soluzione per l'automazione WhatsApp.</p>
+        <div class="hero-cta"><a href="#plans-section">Acquista Ora</a></div>
+    </section>
 
-    <section class="plans">
-        <div class="plan">
-            <h3>Basic</h3>
-            <p>Bot Base</p>
-            <p class="price">€7.50/mese</p>
-            <button class="btn add-to-cart" data-name="Basic" data-price="7.50">Aggiungi al Carrello</button>
-        </div>
-        <div class="plan">
-            <h3>Pro</h3>
-            <p>Bot professionale</p>
-            <p class="price">€19.99/mese</p>
-            <button class="btn add-to-cart" data-name="Pro" data-price="19.99">Aggiungi al Carrello</button>
-        </div>
-        <div class="plan">
-            <h3>Premium</h3>
-            <p>Bot premium</p>
-            <p class="price">€49.99/mese</p>
-            <button class="btn add-to-cart" data-name="Premium" data-price="49.99">Aggiungi al Carrello</button>
-        </div>
-        <div class="plan">
-            <h3>Business</h3>
-            <p>Bot per Aziende</p>
-            <p class="price">€99.99/mese</p>
-            <button class="btn add-to-cart" data-name="Business" data-price="99.99">Aggiungi al Carrello</button>
-        </div>
-    </section>
+    <section id="plans-section" class="plans">
+        <div class="plan">
+            <h3>Basic</h3>
+            <p>Bot Base</p>
+            <p class="price">€7.50/mese</p>
+            <button class="btn add-to-cart" data-name="Basic" data-price="7.50">Aggiungi al Carrello</button>
+            <a href="product.html" class="btn buy-now">Acquista Ora</a>
+        </div>
+        <div class="plan">
+            <h3>Pro</h3>
+            <p>Bot professionale</p>
+            <p class="price">€19.99/mese</p>
+            <button class="btn add-to-cart" data-name="Pro" data-price="19.99">Aggiungi al Carrello</button>
+            <a href="acquisto.html?plan=pro" class="btn buy-now">Acquista Ora</a>
+        </div>
+        <div class="plan">
+            <h3>Premium</h3>
+            <p>Bot premium</p>
+            <p class="price">€49.99/mese</p>
+            <button class="btn add-to-cart" data-name="Premium" data-price="49.99">Aggiungi al Carrello</button>
+            <a href="acquisto.html?plan=premium" class="btn buy-now">Acquista Ora</a>
+        </div>
+        <div class="plan">
+            <h3>Business</h3>
+            <p>Bot per Aziende</p>
+            <p class="price">€99.99/mese</p>
+            <button class="btn add-to-cart" data-name="Business" data-price="99.99">Aggiungi al Carrello</button>
+            <a href="acquisto.html?plan=business" class="btn buy-now">Acquista Ora</a>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2025 ChatUnity. Tutti i diritti riservati.</p>
-    </footer>
+    <footer>
+        <p>&copy; 2025 ChatUnity. Tutti i diritti riservati.</p>
 
-    <script src="script.js"></script>
+        <section class="team-section">
+            <h2>Il Nostro Team</h2>
+            <p>ChatUnity è nata dalla passione di un gruppo di esperti di automazione e comunicazione digitale.  Con anni di esperienza nel settore, abbiamo deciso di creare una piattaforma che potesse semplificare la gestione delle comunicazioni WhatsApp per aziende di ogni dimensione. La nostra missione è fornire soluzioni innovative e accessibili che permettano ai nostri clienti di ottimizzare l'interazione con i propri clienti, migliorare l'efficienza operativa e raggiungere nuovi traguardi di crescita.</p>
+        </section>
+
+        <section class="contacts-section">
+            <h2>I Nostri Contatti</h2>
+            <div class="vcard-container">
+                <div class="vcard">
+                    <img src="immagine-team-1.jpg" alt="Immagine Team 1">
+                    <h4>Nome: Mario Rossi</h4>
+                    <p>Occupazione: CEO</p>
+                    <a href="https://wa.me/390123456781" class="btn contact-button">CONTATTA ORA</a>
+                </div>
+                <div class="vcard">
+                    <img src="immagine-team-2.jpg" alt="Immagine Team 2">
+                    <h4>Nome: Lucia Bianchi</h4>
+                    <p>Occupazione: Responsabile Marketing</p>
+                    <a href="https://wa.me/390123456782" class="btn contact-button">CONTATTA ORA</a>
+                </div>
+                    <div class="vcard">
+                        <img src="immagine-team-3.jpg" alt="Immagine Team 3">
+                    <h4>Nome: Giovanni Verdi</h4>
+                        <p>Occupazione: Supporto Tecnico</p>
+                        <a href="https://wa.me/390123456783" class="btn contact-button">CONTATTA ORA</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
