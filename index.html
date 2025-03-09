@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatUnity - Abbonamento Base</title>
+    <title>ChatUnity - Home</title>
     <link rel="stylesheet" href="prodotti.css">
 </head>
 <body>
-    <!-- Verifica Bot -->
+
+    <!-- Sezione Messaggio di Verifica (All'inizio della pagina) -->
     <div id="verification-message">
         <p>Premi qui per verificare di non essere un bot</p>
         <button id="verify-button">Verifica</button>
     </div>
 
+    <!-- Header con il logo e navigazione -->
     <header>
         <div class="logo">🟢『 𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲 』📲</div>
         <nav>
@@ -23,80 +25,69 @@
         </nav>
     </header>
 
+    <!-- Sezione Hero (Introduzione con il pulsante) -->
     <section class="hero-section">
         <h1>Benvenuto su ChatUnity!</h1>
         <p>Inizia subito ad automatizzare WhatsApp con i nostri bot avanzati.</p>
-        <!-- Pulsante "Inizia ora" -->
         <button id="start-now-button">Inizia Ora</button>
     </section>
 
-    <!-- Sezione Abbonamenti -->
-    <section class="purchase-section" id="abbonamenti">
-        <h1>Acquista il Tuo Abbonamento</h1>
-        <p>Scegli il piano che più ti si addice e completa il pagamento per iniziare a usare i bot di ChatUnity su WhatsApp.</p>
+    <!-- Sezione Prodotti -->
+    <section class="product-section" id="abbonamenti">
+        <h2>I Nostri Prodotti</h2>
+        <p>Scopri i nostri piani e scegli quello più adatto alle tue esigenze.</p>
 
-        <div class="subscription-details">
-            <div class="image-container">
-                <img src="https://media-fco2-1.cdn.whatsapp.net/v/t61.24694-24/479987588_4021574508087986_3619834273786136855_n.jpg?ccb=11-4&oh=01_Q5AaIB9GWa-5g0BsmTjtiJDiA_7y9Gq9niX5bZD7Nzr4zL4C&oe=67D9B3F3&_nc_sid=5e03e0&_nc_cat=111" alt="Abbonamento ChatUnity" class="subscription-image">
-            </div>
-
-            <div class="subscription-info">
-                <h2><strong>Abbonamento: Base</strong></h2>
-                <p>Automatizza WhatsApp con il nostro piano Base. Ottieni il nostro bot di base per la gestione delle tue conversazioni.</p>
-                <p class="price">€7.50 / mese</p>
+        <div class="product-container">
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Prodotto 1">
+                <h3>Abbonamento Base</h3>
+                <p>€7.50 / mese</p>
                 <ul>
                     <li>File Bot</li>
                     <li>Versione Base</li>
-                    <li>Supporto via Email o WhatsApp</li>
+                    <li>Supporto via Email</li>
                 </ul>
+                <button class="product-button">Aggiungi al Carrello</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Prodotto 2">
+                <h3>Abbonamento Premium</h3>
+                <p>€15.00 / mese</p>
+                <ul>
+                    <li>File Bot Premium</li>
+                    <li>Versione Avanzata</li>
+                    <li>Supporto Priority</li>
+                </ul>
+                <button class="product-button">Aggiungi al Carrello</button>
+            </div>
 
-                <!-- Integrazione del pulsante PayPal -->
-                <div id="paypal-button-container-P-27X93702TC882062DM7GL6ZI"></div>
-                <script src="https://www.paypal.com/sdk/js?client-id=AQOK4j5k37hNCh7OgxgHU-OW0Nr00eYgcOeG6iL712lzHSajkH0Og2agBsZ16Kyz5oWIqlTLukhyMcRA&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-                <script>
-                    paypal.Buttons({
-                        style: {
-                            shape: 'pill',
-                            color: 'gold',
-                            layout: 'vertical',
-                            label: 'subscribe'
-                        },
-                        createSubscription: function(data, actions) {
-                            return actions.subscription.create({
-                                /* Creates the subscription */
-                                plan_id: 'P-27X93702TC882062DM7GL6ZI'
-                            });
-                        },
-                        onApprove: function(data, actions) {
-                            alert('Abbonamento completato! ID sottoscrizione: ' + data.subscriptionID);
-                        }
-                    }).render('#paypal-button-container-P-27X93702TC882062DM7GL6ZI');
-                </script>
+             <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Prodotto 2">
+                <h3>Abbonamento Pro</h3>
+                <p>€15.00 / mese</p>
+                <ul>
+                    <li>Bot Professionale</li>
+                    <li>Versione Avanzata</li>
+                    <li>Supporto Priority</li>
+                </ul>
+                <button class="product-button">Aggiungi al Carrello</button>
+            </div>
+
+             <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Prodotto 2">
+                <h3>Abbonamento Azienda</h3>
+                <p>€15.00 / mese</p>
+                <ul>
+                    <li>Bot Aziendale</li>
+                    <li>Versione Avanzata</li>
+                    <li>Supporto Priority</li>
+                </ul>
+                <button class="product-button">Aggiungi al Carrello</button>
             </div>
         </div>
     </section>
 
-    <!-- Sezione Il nostro team -->
-    <section class="team-section">
-        <h1>Il nostro Team</h1>
-        <div class="team-member">
-            <img src="team-member1.jpg" alt="Membro Team" class="team-member-img">
-            <h3>Nome del Membro</h3>
-            <p>Ruolo</p>
-        </div>
-        <div class="team-member">
-            <img src="team-member2.jpg" alt="Membro Team" class="team-member-img">
-            <h3>Nome del Membro</h3>
-            <p>Ruolo</p>
-        </div>
-        <div class="team-member">
-            <img src="team-member3.jpg" alt="Membro Team" class="team-member-img">
-            <h3>Nome del Membro</h3>
-            <p>Ruolo</p>
-        </div>
-    </section>
-
-    <!-- Footer con i contatti -->
+    <!-- Sezione Contatti -->
     <footer>
         <div class="contact-info">
             <p>Contattaci: <a href="mailto:contatti@chatunity.com">contatti@chatunity.com</a></p>
