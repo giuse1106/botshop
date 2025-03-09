@@ -5,65 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatUnity - Abbonamento Base</title>
     <link rel="stylesheet" href="prodotti.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="page-transition">
     <header>
         <div class="logo">🟢『 𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲 』📲</div>
         <nav>
             <a href="index.html">Home</a>
+            <a href="carrello.html" id="carrelloLink">Carrello (<span id="cart-count">0</span>)</a>
             <a href="login.html" id="loginLink">Login</a>
             <a href="register.html" id="registerLink">Registrati</a>
             <a href="#" id="logoutLink" style="display:none;">Logout</a>
         </nav>
     </header>
 
-    <section class="purchase-section">
-        <h1>Acquista il Tuo Abbonamento</h1>
-        <p>Scegli il piano che più ti si addice e completa il pagamento per iniziare a usare i bot di ChatUnity su WhatsApp.</p>
-
-        <div class="subscription-details">
-            <div class="image-container">
-                <img src="https://media-fco2-1.cdn.whatsapp.net/v/t61.24694-24/479987588_4021574508087986_3619834273786136855_n.jpg?ccb=11-4&oh=01_Q5AaIB9GWa-5g0BsmTjtiJDiA_7y9Gq9niX5bZD7Nzr4zL4C&oe=67D9B3F3&_nc_sid=5e03e0&_nc_cat=111" alt="Abbonamento ChatUnity" class="subscription-image">
-            </div>
-
-            <div class="subscription-info">
-                <h2><strong>Abbonamento: Base</strong></h2>
-                <p>Automatizza WhatsApp con il nostro piano Base. Ottieni il nostro bot di base per la gestione delle tue conversazioni.</p>
+    <section class="product-section">
+        <div class="product-container">
+            <div class="product-image">
+                <div class="product-image-wrapper">  <div class="image-container" onclick="openFullscreen()">
+                        <img src="https://media-fco2-1.cdn.whatsapp.net/v/t61.24694-24/479987588_4021574508087986_3619834273786136855_n.jpg?ccb=11-4&oh=01_Q5AaIB9GWa-5g0BsmTjtiJDiA_7y9Gq9niX5bZD7Nzr4zL4C&oe=67D9B3F3&_nc_sid=5e03e0&_nc_cat=111" alt="Abbonamento ChatUnity" class="product-image-img">
+                    </div>
+                </div>  </div>
+            <div class="product-info">
+                <h1>Abbonamento: Base</h1>
+                <p class="product-description">Automatizza WhatsApp con il nostro piano Base. Ottieni il nostro bot di base per la gestione delle tue conversazioni su WhatsApp.</p>
                 <p class="price">€7.50 / mese</p>
-                <ul>
+                <ul class="product-features">
                     <li>File Bot</li>
                     <li>Versione Base</li>
                     <li>Supporto via Email o WhatsApp</li>
                 </ul>
-
-                <!-- Integrazione del pulsante PayPal -->
-                <div id="paypal-button-container-P-27X93702TC882062DM7GL6ZI"></div>
-                <script src="https://www.paypal.com/sdk/js?client-id=AQOK4j5k37hNCh7OgxgHU-OW0Nr00eYgcOeG6iL712lzHSajkH0Og2agBsZ16Kyz5oWIqlTLukhyMcRA&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
-                <script>
-                    paypal.Buttons({
-                        style: {
-                            shape: 'pill',
-                            color: 'gold',
-                            layout: 'vertical',
-                            label: 'subscribe'
-                        },
-                        createSubscription: function(data, actions) {
-                            return actions.subscription.create({
-                                /* Creates the subscription */
-                                plan_id: 'P-27X93702TC882062DM7GL6ZI'
-                            });
-                        },
-                        onApprove: function(data, actions) {
-                            alert('Abbonamento completato! ID sottoscrizione: ' + data.subscriptionID);
-                        }
-                    }).render('#paypal-button-container-P-27X93702TC882062DM7GL6ZI'); // Renders the PayPal button
-                </script>
+                <div class="product-buttons">
+                    <button class="btn add-to-cart">Aggiungi al Carrello</button>
+                    <div id="paypal-button-container-P-27X93702TC882062DM7GL6ZI"></div>
+                </div>
             </div>
         </div>
     </section>
 
+    <div id="fullscreen-image-overlay" onclick="closeFullscreen()">
+        <span class="close-button" onclick="closeFullscreen()">&times;</span>
+        <img id="fullscreen-image" src="" alt="Immagine Prodotto Fullscreen">
+    </div>
+
     <footer>
         <p>&copy; 2025 ChatUnity. Tutti i diritti riservati.</p>
     </footer>
+
+    <script src="SpiderV1-MENU.png" data-sdk-integration-source="button-factory"></script>
+    <script>
+        paypal.Buttons({
+            style: {
+                shape: 'pill',
+                color: 'gold',
+                layout: 'vertical',
+                label: 'subscribe'
+            },
+            createSubscription: function(data, actions) {
+                return actions.subscription.create({
+                    plan_id: 'P-27X93702TC882062DM7GL6ZI'
+                });
+            },
+            onApprove: function(data, actions) {
+                alert('Abbonamento completato! ID sottoscrizione: ' + data.subscriptionID);
+            }
+        }).render('#paypal-button-container-P-27X93702TC882062DM7GL6ZI'); // Renders the PayPal button
+    </script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('loaded');
+        });
+
+        function openFullscreen() {
+            document.getElementById('fullscreen-image-overlay').style.display = 'flex';
+            document.getElementById('fullscreen-image').src = document.querySelector('.product-image-img').src;
+            setTimeout(() => {
+                document.getElementById('fullscreen-image-overlay').classList.add('active');
+            }, 0); // Delay to allow transition to start
+        }
+
+        function closeFullscreen() {
+            document.getElementById('fullscreen-image-overlay').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('fullscreen-image-overlay').style.display = 'none';
+            }, 300); // Match transition duration
+        }
+    </script>
 </body>
 </html>
