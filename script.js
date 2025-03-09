@@ -56,3 +56,30 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Sezione Verifica
+    const verificationMessage = document.getElementById("verification-message");
+    const verifyButton = document.getElementById("verify-button");
+
+    // Mostra il messaggio di verifica quando la pagina è caricata
+    verificationMessage.style.display = "block";
+
+    // Gestione del click sul pulsante di verifica
+    verifyButton.addEventListener("click", function() {
+        alert("Verifica completata. Ora puoi continuare!");
+        verificationMessage.style.display = "none"; // Nascondi il messaggio di verifica
+    });
+
+    // Scroll verso la sezione abbonamenti quando si preme "Inizia Ora"
+    const startNowButton = document.getElementById("start-now-button");
+    const abbonamentiSection = document.getElementById("abbonamenti");
+
+    startNowButton.addEventListener("click", function() {
+        abbonamentiSection.scrollIntoView({
+            behavior: "smooth" // Aggiunge un'animazione di scorrimento
+        });
+    });
+});
+
