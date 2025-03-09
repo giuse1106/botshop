@@ -5,6 +5,7 @@ body {
     color: white;
     margin: 0;
     text-align: center;
+    overflow-x: hidden; /* Nascondi scroll orizzontale se necessario */
 }
 
 /* Navbar */
@@ -12,19 +13,24 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #000;
     padding: 15px 30px;
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
+    transition: background-color 0.5s ease-out; /* Transizione per sfondo */
+    background-color: transparent; /* Modifica: Imposta sfondo header iniziale a trasparente */
+}
+
+header.scrolled {
+    background-color: #000; /* Sfondo nero quando si scorre */
 }
 
 .logo {
     font-size: 22px;
     font-weight: bold;
-    color: #1DB954;
+    color: white; /* Modifica: Imposta il colore del logo a bianco */
     display: flex;
     align-items: center;
 }
@@ -90,9 +96,13 @@ nav a:hover {
 
 /* Sezione Hero */
 .hero {
-    padding: 150px 20px;
+    padding: 200px 20px 100px 20px; /* Aumenta padding top, ridotto bottom */
     background: linear-gradient(to bottom, #1DB954, #121212);
     animation: fadeIn 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centra orizzontalmente nella Hero */
 }
 
 .hero h1 {
@@ -105,7 +115,29 @@ nav a:hover {
     margin-bottom: 20px;
 }
 
-/* Bottoni animati */
+/* Rettangolo "Acquista Ora" nella Hero */
+.hero-cta {
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente */
+    padding: 20px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-cta:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.hero-cta a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    display: block; /* Assicura che il link riempia il rettangolo */
+}
+
+
+/* Bottoni animati (Aggiungi al carrello e Contatta Ora) */
 .btn {
     background: #1DB954;
     color: white;
@@ -116,6 +148,10 @@ nav a:hover {
     transition: all 0.3s ease-in-out;
     box-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
     border: 2px solid transparent;
+    display: inline-block; /* Modifica: inline-block per affiancare */
+    margin: 10px; /* Modifica: Margine laterale per separare i bottoni */
+    text-align: center;
+    width: fit-content;
 }
 
 .btn:hover {
@@ -132,14 +168,15 @@ nav a:hover {
     transform: scale(1.1);
 }
 
-/* Sezione piani */
+/* Sezione piani (Prodotti) */
 .plans {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-wrap: row wrap; /* Modifica: row wrap per allineare in riga e wrappare */
+    justify-content: flex-start; /* Modifica: allinea a sinistra su schermi larghi */
     margin: 50px auto;
-    max-width: 1100px;
+    max-width: 1200px; /* Aumenta max-width per più spazio orizzontale */
     animation: fadeInUp 1s ease-in-out;
+    padding: 20px; /* Aggiungi padding alla sezione plans */
 }
 
 .plan {
@@ -147,11 +184,14 @@ nav a:hover {
     padding: 25px;
     margin: 10px;
     border-radius: 10px;
-    width: 250px;
+    width: 300px; /* Aumenta larghezza piani */
     text-align: center;
     transition: 0.3s ease-in-out;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex: 1 1 300px; /* Permetti ai piani di crescere, restringersi e imposta la larghezza base */
+    max-width: 300px; /* Larghezza massima per piano */
 }
+
 
 .plan:hover {
     transform: translateY(-5px);
@@ -169,28 +209,147 @@ nav a:hover {
 /* Footer */
 footer {
     background: #000;
-    padding: 15px;
+    padding: 50px 15px 15px 15px; /* Aumenta padding top nel footer */
     position: relative;
     width: 100%;
     bottom: 0;
     font-size: 14px;
+    display: flex; /* Footer flex container */
+    flex-direction: column; /* Organizza elementi verticalmente */
+    align-items: center; /* Centra elementi orizzontalmente nel footer */
 }
+
+footer > p {
+    margin-bottom: 20px; /* Spazio sopra il copyright */
+}
+
+
+/* Sezione Team e Contatti nel Footer */
+.team-section, .contacts-section {
+    width: 100%;
+    max-width: 1200px; /* Max width per sezioni team e contatti */
+    margin-bottom: 30px; /* Spazio tra sezioni */
+    animation: fadeInUp 1s ease-in-out;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #282828;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.team-section h2, .contacts-section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center; /* Centra i titoli delle sezioni */
+}
+
+.team-section p {
+    text-align: center;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 20px; /* Spazio sotto il paragrafo "Il nostro Team" */
+}
+
+
+/* Contatti (VCard) nella sezione Contatti */
+.vcard-container {
+    display: flex;
+    flex-wrap: row wrap; /* Allinea in riga e wrappa come i piani */
+    justify-content: flex-start; /* Allinea a sinistra su schermi larghi */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.vcard {
+    background-color: #333; /* Leggermente più scuro per differenziare */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 250px; /* Larghezza VCard leggermente ridotta */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-in-out;
+    transition: 0.3s ease-in-out;
+    margin: 10px;
+    flex: 1 1 250px; /* Permetti alle VCard di crescere, restringersi e imposta la larghezza base */
+    max-width: 250px; /* Larghezza massima per VCard */
+}
+
+.vcard img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.vcard h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.vcard p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.vcard a {
+    color: #00aaff;
+    text-decoration: none;
+}
+
+.vcard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.vcard a:hover {
+    text-decoration: underline;
+}
+
+/* Bottone "Contatta Ora" nelle VCard */
+.contact-button {
+    @extend .btn; /* Estende gli stili da .btn */
+    display: block; /* Bottone a blocco per occupare tutta la larghezza */
+    margin: 15px auto 0; /* Margine superiore e auto per centrare */
+    width: fit-content; /* Adatta la larghezza al contenuto */
+}
+
 
 /* 🌍 Responsività per dispositivi mobili */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
         text-align: center;
+        background-color: #000; /* Sfondo nero fisso su mobile */
+    }
+    header.scrolled {
+        background-color: #000; /* Mantiene sfondo nero anche se scrolled su mobile */
     }
 
+
     nav {
-        display: flex;
+        display: none;
         flex-direction: column;
         margin-top: 10px;
+        width: 100%;
+    }
+
+    nav.open {
+        display: flex;
     }
 
     nav a {
-        margin: 5px 0;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    #hamburger {
+        display: flex;
+    }
+
+    .hero {
+        padding-top: 180px; /* Regola padding top su mobile */
     }
 
     .plans {
@@ -198,8 +357,18 @@ footer {
         align-items: center;
     }
 
-    .plan {
-        width: 90%;
+    .plan, .vcard {
+        width: 90%; /* Piani e VCard più larghi su mobile */
+        max-width: none; /* Rimuovi max-width su mobile per farli espandere */
+        flex-basis: auto; /* Reset flex-basis su mobile */
+    }
+
+    .vcard-container, .plans {
+        justify-content: center; /* Centra piani e vcard su mobile */
+    }
+
+    .team-section, .contacts-section {
+        padding: 15px; /* Riduce padding sezioni su mobile */
     }
 }
 
@@ -225,3 +394,5 @@ footer {
         transform: translateY(0);
     }
 }
+
+/*  Modifiche per "Acquista Ora", "Team" e "Contatti" FINE */
