@@ -1,164 +1,227 @@
-/* 🌍 Impostazioni Generali */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
+/* Stile generale */
 body {
+    font-family: 'Poppins', sans-serif;
     background-color: #121212;
     color: white;
+    margin: 0;
+    text-align: center;
 }
 
-/* 🚀 Header */
+/* Navbar */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
-    background-color: #181818;
-    position: sticky;
+    background-color: #000;
+    padding: 15px 30px;
+    position: fixed;
+    width: 100%;
     top: 0;
+    left: 0;
     z-index: 1000;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
     color: #1DB954;
+    display: flex;
+    align-items: center;
+}
+
+/* Icona nel logo */
+.site-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    align-items: center;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 20px;
-    font-size: 16px;
-    transition: color 0.3s;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: 0.3s;
 }
 
 nav a:hover {
     color: #1DB954;
 }
 
-/* 🎯 Hero Section */
+/* Hamburger menu */
+#hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+#hamburger div {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+/* Animazione del menu hamburger */
+#hamburger.open div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#hamburger.open div:nth-child(2) {
+    opacity: 0;
+}
+
+#hamburger.open div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Sezione Hero */
 .hero {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #1DB954, #121212);
-    border-bottom: 3px solid #1DB954;
+    padding: 150px 20px;
+    background: linear-gradient(to bottom, #1DB954, #121212);
+    animation: fadeIn 1s ease-in-out;
 }
 
 .hero h1 {
-    font-size: 40px;
-    font-weight: 600;
+    font-size: 32px;
     margin-bottom: 10px;
 }
 
 .hero p {
     font-size: 18px;
-    opacity: 0.8;
+    margin-bottom: 20px;
 }
 
-.hero .btn {
-    margin-top: 20px;
-    display: inline-block;
-    padding: 12px 30px;
-    background-color: #1DB954;
+/* Bottoni animati */
+.btn {
+    background: #1DB954;
     color: white;
-    font-size: 18px;
+    padding: 12px 20px;
+    font-size: 16px;
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(29, 185, 84, 0.5);
+    border: 2px solid transparent;
 }
 
-.hero .btn:hover {
-    background-color: #14833B;
+.btn:hover {
+    background: #14833B;
+    box-shadow: 0 0 15px rgba(29, 185, 84, 0.7);
+    transform: scale(1.05);
+    border: 2px solid white;
 }
 
-/* 📦 Piani di Abbonamento */
+/* Effetto di clic sul bottone */
+.added {
+    background: #fff;
+    color: #1DB954;
+    transform: scale(1.1);
+}
+
+/* Sezione piani */
 .plans {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    padding: 50px 20px;
-    gap: 20px;
+    justify-content: center;
+    margin: 50px auto;
+    max-width: 1100px;
+    animation: fadeInUp 1s ease-in-out;
 }
 
 .plan {
-    background-color: #181818;
-    padding: 30px;
+    background: #282828;
+    padding: 25px;
+    margin: 10px;
     border-radius: 10px;
-    text-align: center;
     width: 250px;
-    border: 2px solid transparent;
-    transition: 0.3s;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .plan:hover {
-    border-color: #1DB954;
-    transform: scale(1.05);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.plan h3 {
-    font-size: 22px;
+/* Prezzi */
+.price {
+    font-size: 24px;
     color: #1DB954;
-    margin-bottom: 10px;
-}
-
-.plan p {
-    font-size: 16px;
-    opacity: 0.8;
-}
-
-.plan .price {
-    font-size: 20px;
     font-weight: bold;
-    margin: 15px 0;
-    color: #1DB954;
+    margin: 10px 0;
 }
 
-.plan .btn {
-    display: block;
-    margin-top: 15px;
-    padding: 10px;
-    background: #1DB954;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s;
+/* Footer */
+footer {
+    background: #000;
+    padding: 15px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    font-size: 14px;
 }
 
-.plan .btn:hover {
-    background: #14833B;
-}
-
-/* 📱 Responsività */
-@media screen and (max-width: 768px) {
+/* 🌍 Responsività per dispositivi mobili */
+@media (max-width: 768px) {
     header {
         flex-direction: column;
         text-align: center;
-        padding: 20px;
     }
 
     nav {
+        display: flex;
+        flex-direction: column;
         margin-top: 10px;
     }
 
-    .hero h1 {
-        font-size: 30px;
+    nav a {
+        margin: 5px 0;
     }
 
     .plans {
         flex-direction: column;
         align-items: center;
     }
+
+    .plan {
+        width: 90%;
+    }
 }
 
-/* 🏁 Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #181818;
-    margin-top: 50px;
+/* 🌟 Animazioni */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
