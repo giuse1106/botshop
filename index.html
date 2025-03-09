@@ -3,99 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatUnity - Home</title>
+    <title>🟢『 𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲 』📲 - Home Page</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Sezione Messaggio di Verifica (All'inizio della pagina) -->
-    <div id="verification-message">
-        <p>Premi qui per verificare di non essere un bot</p>
-        <button id="verify-button">Verifica</button>
-    </div>
-
-    <!-- Header con il logo e navigazione -->
     <header>
         <div class="logo">🟢『 𝐂𝐡𝐚𝐭𝐔𝐧𝐢𝐭𝐲 』📲</div>
         <nav>
             <a href="index.html">Home</a>
-            <a href="login.html" id="loginLink">Login</a>
-            <a href="register.html" id="registerLink">Registrati</a>
-            <a href="#" id="logoutLink" style="display:none;">Logout</a>
+            <a href="carrello.html">🛒 Carrello (<span id="cart-count">0</span>)</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Registrati</a>
         </nav>
     </header>
 
-    <!-- Sezione Hero (Introduzione con il pulsante) -->
-    <section class="hero-section">
-        <h1>Benvenuto su ChatUnity!</h1>
-        <p>Inizia subito ad automatizzare WhatsApp con i nostri bot avanzati.</p>
-        <button id="start-now-button">Inizia Ora</button>
+    <section class="hero">
+        <h1>Automatizza WhatsApp con i migliori Bot</h1>
+        <p>Gestisci messaggi, automazioni e molto altro con i nostri piani esclusivi.</p>
+        <a href="register.html" class="btn">Inizia Ora</a>
     </section>
 
-    <!-- Sezione Prodotti -->
-    <section class="product-section" id="abbonamenti">
-        <h2>I Nostri Prodotti</h2>
-        <p>Scopri i nostri piani e scegli quello più adatto alle tue esigenze.</p>
-
-        <div class="product-container">
-            <div class="product">
-                <img src="https://via.placeholder.com/150" alt="Prodotto 1">
-                <h3>Abbonamento Base</h3>
-                <p>€7.50 / mese</p>
-                <ul>
-                    <li>File Bot</li>
-                    <li>Versione Base</li>
-                    <li>Supporto via Email</li>
-                </ul>
-                <button class="product-button">Aggiungi al Carrello</button>
-            </div>
-            <div class="product">
-                <img src="https://via.placeholder.com/150" alt="Prodotto 2">
-                <h3>Abbonamento Premium</h3>
-                <p>€15.00 / mese</p>
-                <ul>
-                    <li>File Bot Premium</li>
-                    <li>Versione Avanzata</li>
-                    <li>Supporto Priority</li>
-                </ul>
-                <button class="product-button">Aggiungi al Carrello</button>
-            </div>
-
-             <div class="product">
-                <img src="https://via.placeholder.com/150" alt="Prodotto 2">
-                <h3>Abbonamento Pro</h3>
-                <p>€15.00 / mese</p>
-                <ul>
-                    <li>Bot Professionale</li>
-                    <li>Versione Avanzata</li>
-                    <li>Supporto Priority</li>
-                </ul>
-                <button class="product-button">Aggiungi al Carrello</button>
-            </div>
-
-             <div class="product">
-                <img src="https://via.placeholder.com/150" alt="Prodotto 2">
-                <h3>Abbonamento Azienda</h3>
-                <p>€15.00 / mese</p>
-                <ul>
-                    <li>Bot Aziendale</li>
-                    <li>Versione Avanzata</li>
-                    <li>Supporto Priority</li>
-                </ul>
-                <button class="product-button">Aggiungi al Carrello</button>
-            </div>
+    <section class="plans">
+        <div class="plan">
+            <h3>Basic</h3>
+            <p>Bot Base</p>
+            <p class="price">€7.50/mese</p>
+            <button class="btn add-to-cart" data-name="Basic" data-price="7.50">Aggiungi al Carrello</button>
+        </div>
+        <div class="plan">
+            <h3>Pro</h3>
+            <p>Bot professionale</p>
+            <p class="price">€19.99/mese</p>
+            <button class="btn add-to-cart" data-name="Pro" data-price="19.99">Aggiungi al Carrello</button>
+        </div>
+        <div class="plan">
+            <h3>Premium</h3>
+            <p>Bot premium</p>
+            <p class="price">€49.99/mese</p>
+            <button class="btn add-to-cart" data-name="Premium" data-price="49.99">Aggiungi al Carrello</button>
+        </div>
+        <div class="plan">
+            <h3>Business</h3>
+            <p>Bot per Aziende</p>
+            <p class="price">€99.99/mese</p>
+            <button class="btn add-to-cart" data-name="Business" data-price="99.99">Aggiungi al Carrello</button>
         </div>
     </section>
 
-    <!-- Sezione Contatti -->
     <footer>
-        <div class="contact-info">
-            <p>Contattaci: <a href="mailto:contatti@chatunity.com">contatti@chatunity.com</a></p>
-            <p>Telefono: +123 456 789</p>
-        </div>
         <p>&copy; 2025 ChatUnity. Tutti i diritti riservati.</p>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
