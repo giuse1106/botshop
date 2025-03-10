@@ -1,85 +1,32 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const loginForm = document.getElementById("loginForm");
-    const hamburger = document.getElementById("hamburger");
-    const navbar = document.getElementById("navbar");
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburgerButton = document.getElementById('hamburger');
+    const navMenu = document.querySelector('nav');
+    const header = document.querySelector('header');
+    const heroCTA = document.querySelector('.hero-cta');
+    const plansSection = document.querySelector('.plans');
 
-    // Gestione login
-    if (loginForm) {
-        loginForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-            let email = document.getElementById("loginEmail").value;
-            let password = document.getElementById("loginPassword").value;
-            let user = JSON.parse(localStorage.getItem(email));
-
-            if (user && user.password === password) {
-                localStorage.setItem("loggedInUser", email);
-                document.querySelector(".btn").innerText = "Accesso...";
-
-                // Animazione durante il login
-                document.body.classList.add('animating');
-                setTimeout(() => {
-                    window.location.href = "index.html";
-                }, 1500); // Dopo 1500 ms, redireziona alla home
-            } else {
-                alert("Email o password errata!");
-            }
+    // Menu Hamburger
+    if (hamburgerButton && navMenu) {
+        hamburgerButton.addEventListener('click', () => {
+            hamburgerButton.classList.toggle('open');
+            navMenu.classList.toggle('open');
         });
     }
 
-    // Gestione del menu hamburger
-    hamburger.addEventListener('click', function () {
-        navbar.classList.toggle('open');
-        hamburger.classList.toggle('open');
+    // Cambia sfondo header su scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) { /* Regola la distanza di scroll per far comparire lo sfondo */
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     });
 
-    // Aggiungi animazione durante il passaggio da login a registrazione
-    const registerLink = document.getElementById('registerLink');
-    if (registerLink) {
-        registerLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            document.body.classList.add('animating');
-            setTimeout(function () {
-                window.location.href = "register.html";
-            }, 500); // Dopo 500 ms di animazione, carica la pagina di registrazione
-        });
-    }
-
-    // Aggiungi animazione durante il passaggio da registrazione a login
-    const loginLink = document.getElementById('loginLink');
-    if (loginLink) {
-        loginLink.addEventListener('click', function (event) {
-            event.preventDefault();
-            document.body.classList.add('animating');
-            setTimeout(function () {
-                window.location.href = "login.html";
-            }, 500); // Dopo 500 ms di animazione, carica la pagina di login
+    // Smooth scroll al click su "Acquista Ora"
+    if (heroCTA && plansSection) {
+        heroCTA.addEventListener('click', (e) => {
+            e.preventDefault(); // Previeni il comportamento predefinito del link
+            plansSection.scrollIntoView({ behavior: 'smooth' });
         });
     }
 });
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    // Sezione Verifica
-    const verificationMessage = document.getElementById("verification-message");
-    const verifyButton = document.getElementById("verify-button");
-
-    // Mostra il messaggio di verifica quando la pagina è caricata
-    verificationMessage.style.display = "block";
-
-    // Gestione del click sul pulsante di verifica
-    verifyButton.addEventListener("click", function() {
-        alert("Verifica completata. Ora puoi continuare!");
-        verificationMessage.style.display = "none"; // Nascondi il messaggio di verifica
-    });
-
-    // Scroll verso la sezione abbonamenti quando si preme "Inizia Ora"
-    const startNowButton = document.getElementById("start-now-button");
-    const abbonamentiSection = document.getElementById("abbonamenti");
-
-    startNowButton.addEventListener("click", function() {
-        abbonamentiSection.scrollIntoView({
-            behavior: "smooth" // Aggiunge un'animazione di scorrimento
-        });
-    });
-});
-
